@@ -10,5 +10,5 @@ reporting_user_secret: ''
 
 install_dir: '/home/mosipuser/mosip-security/mosip-security-playbook/'
 #charts_root: '{{install_root}}/helm/charts'  # Helm charts root
-roles_dir: '{{install_root}}/roles'
-utils_dir: '{{install_root}}/utils'
+roles_dir: '{{install_dir}}/roles'
+utils_dir: '{{install_dir}}/utils'
