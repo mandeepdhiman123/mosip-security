@@ -6,5 +6,4 @@ This is sceurity framework for mosip e2e security
 2. install git on the machine
 3. install ansible on the machine
 4. Clone the repo.
-5. rename the file group_vars/all.yml to <yourhostname>.yml
-6. run playbook using ansible-playbook -i hosts.ini start.yml
+5. Run playbook using ansible-playbook -i hosts.ini start.yml
