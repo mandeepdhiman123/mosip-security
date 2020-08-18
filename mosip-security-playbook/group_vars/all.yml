@@ -9,6 +9,7 @@ reporting_user: 'mosipdocs@gmail.com'
 reporting_user_secret: ''
 
 install_dir: '/home/mosipuser/mosip-security/mosip-security-playbook/'
-#charts_root: '{{install_root}}/helm/charts'  # Helm charts root
 roles_dir: '{{install_dir}}/roles'
 utils_dir: '{{install_dir}}/utils'
+lib_dir: '{{install_dir}}/utils/python-lib'
+python_lib-dir: '/./usr/local/lib/python2.7/dist-packages/'

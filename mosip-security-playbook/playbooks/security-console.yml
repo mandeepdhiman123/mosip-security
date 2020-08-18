@@ -15,3 +15,5 @@
     - {role: packages/python, tags: [python]} # Needed for letsencrypt and test scripts
     - {role: packages/pip, tags: [pip]}
     - {role: packages/pip-packages, tags: [pip-packages]}
+    - {role: packages/copy-python-libs, tags: [copy-python-libs]}
+    -
