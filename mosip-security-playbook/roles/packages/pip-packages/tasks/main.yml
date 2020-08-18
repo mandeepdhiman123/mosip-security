@@ -1,0 +1,6 @@
+- name: Install required packages
+  pip:
+    requirements: pip-packages.txt
+    chdir: {{install_root}}/utils/
+  become: yes
+

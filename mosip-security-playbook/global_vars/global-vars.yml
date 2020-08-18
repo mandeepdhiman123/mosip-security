@@ -1,0 +1,13 @@
+
+---
+# Global variables - accessed by different roles and plays
+#
+tmp_dir: '/tmp/'
+logs_dir: '/tmp/'
+
+reporting_user: 'mosipdocs@gmail.com'
+reporting_user_secret: ''
+
+install_root: /home/mosipuser/mosip-security/
+#charts_root: '{{install_root}}/helm/charts'  # Helm charts root
+roles_root: '{{install_root}}/roles'
