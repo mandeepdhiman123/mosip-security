@@ -1,5 +1,5 @@
 - name: Install pip
-  yum:
+  apt:
     name: python-pip
     state: latest
   become: yes

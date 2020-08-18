@@ -1,5 +1,5 @@
 - name: Install python
-  yum:
+  apt:
     name: python
     state: present
   become: yes
