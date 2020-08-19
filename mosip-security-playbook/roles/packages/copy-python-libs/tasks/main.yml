@@ -1,4 +1,5 @@
 - name: Copy python libraries to python lib
+  become: yes
   copy:
     src: "{{ item }}"
     dest: "{{ python_lib_dir }}"
