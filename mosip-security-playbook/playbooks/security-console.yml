@@ -18,4 +18,5 @@
     - {role: packages/pip-packages, tags: [pip-packages]}
     - {role: packages/copy-python-libs, tags: [copy-python-libs]}
     - {role: packages/zap-download, tags: [zap-download]}
+    - {role: packages/maven, tags: [maven]}
     - {role: packages/functional-test, tags: [functional-test]}

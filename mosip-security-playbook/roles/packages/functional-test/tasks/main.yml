@@ -1,17 +1,11 @@
-- name: Asking for test rig version
-  pause:
-    prompt: "Please enter the mosip-functional-test branch number you want to run for this system:"
-  register: version
-
 - name: Download and Unarchive Functional Test
   unarchive:
-    src: "https://github.com/mosip/mosip-functional-tests/archive/{{ version }}.zip"
+    src: "https://github.com/mosip/mosip-functional-tests/archive/{{ testrig_version }}.zip"
     dest: "{{ tools_dir }}"
-    mode: 0755
     remote_src: yes
 
 - name: Move version to generic dir
-  command: "mv {{ tools_dir }}/{{ version }} {{ tools_dir }}/testrig"
+  command: "mv {{ tools_dir }}/mosip-functional-tests-{{ testrig_version }} {{ tools_dir }}/testrig"
 
-- name: bulding test-rig
-  command: "{{ tools_dir }}/testrig/mvn clean install"
+#- name: bulding test-rig
+#  shell: "cd {{ tools_dir }}testrig/automationtests && mvn clean install"
