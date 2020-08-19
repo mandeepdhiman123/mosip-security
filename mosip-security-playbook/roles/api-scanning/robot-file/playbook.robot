@@ -1,21 +1,17 @@
 *** Settings ***
-#Library  ThreatPlaybook  Mosip
 Library  Collections
-Library  RoboZap  https://127.0.0.1:8081  8081
+Library  RoboZap  https://127.0.0.1:8090  8090
 Library  RoboFunctionalTest
-#Library  RoboNmap
-Library  Process
 
 *** Variables ***
-${TARGET_NAME}  MOSIP
+${TARGET_NAME}  Mosip
 ${TARGET_URI}  https://qa.mosip.net/
-${TARGET_HOST}  qa.mosip.net
 
 #CONFIG
 ${RESULTS_PATH}  /home/mosipuser/mosip/reports
 
 #ZAP
-${ZAP_PATH}  /home/mosipuser/mosip/zap/
+${ZAP_PATH}  /home/mosipuser/securitytools/
 ${APPNAME}  qa.mosip.net
 ${CONTEXT}  qa.mosip.net
 ${REPORT_TITLE}  MOSIP Test Report - ZAP

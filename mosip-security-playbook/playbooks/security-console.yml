@@ -8,12 +8,14 @@
   tasks:
     - {name: 'Create tmp folder', file: {name: "{{tmp_dir}}", state: directory}}
     - {name: 'Create logs folder', file: {name: "{{logs_dir}}", state: directory}}
+    - {name: 'Create tools folder', file: {name: "{{tools_dir}}", state: directory}}
 
 - hosts: security-console
-  gather_facts: true 
+  gather_facts: true
+  become: yes
   roles:
     - {role: packages/python, tags: [python]} # Needed for letsencrypt and test scripts
     - {role: packages/pip, tags: [pip]}
     - {role: packages/pip-packages, tags: [pip-packages]}
     - {role: packages/copy-python-libs, tags: [copy-python-libs]}
-    -
+    - {role: packages/zap-download, tags: [zap-download]}

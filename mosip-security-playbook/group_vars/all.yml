@@ -4,6 +4,7 @@
 #
 tmp_dir: '/tmp/'
 logs_dir: '/tmp/'
+tools_dir: '/home/mosipuser/securitytools'
 
 reporting_user: 'mosipdocs@gmail.com'
 reporting_user_secret: ''
@@ -11,5 +12,5 @@ reporting_user_secret: ''
 install_dir: '/home/mosipuser/mosip-security/mosip-security-playbook/'
 roles_dir: '{{install_dir}}/roles'
 utils_dir: '{{install_dir}}/utils'
-lib_dir: '{{install_dir}}/utils/python-lib'
-python_lib-dir: '/./usr/local/lib/python2.7/dist-packages/'
+lib_dir: '{{utils_dir}}/python-lib/'
+python_lib_dir: '/usr/local/lib/python2.7/dist-packages/'
