@@ -1,5 +1,5 @@
 - name: Asking for test rig version
-- pause:
+  pause:
     prompt: "Please enter the mosip-functional-test branch number you want to run for this system:"
   register: version
 
