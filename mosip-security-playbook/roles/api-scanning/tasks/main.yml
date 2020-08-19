@@ -1,4 +1,3 @@
 - name: Run Api Scanning using Zap
-  command: "robot {{ roles_dir }}/api-scanning/robot-file/play.robot"
-- become: yes
+  shell: "robot {{ roles_dir }}/api-scanning/robot-file/playbook.robot"
 

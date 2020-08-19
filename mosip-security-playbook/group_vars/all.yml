@@ -4,8 +4,6 @@
 #
 tmp_dir: '/tmp/'
 logs_dir: '/tmp/'
-tools_dir: '/home/mosipuser/securitytools/'
-
 reporting_user: 'mosipdocs@gmail.com'
 reporting_user_secret: ''
 
@@ -14,5 +12,22 @@ roles_dir: '{{install_dir}}/roles'
 utils_dir: '{{install_dir}}/utils'
 lib_dir: '{{utils_dir}}/python-lib/'
 python_lib_dir: '/usr/local/lib/python2.7/dist-packages/'
-zap_dir: '{{tools_dir}}/zap/'
 maven_dir: '~/.m2/'
+tools_dir: '/home/mosipuser/securitytools/'
+
+
+#Robo framework variables
+root_dir: '/home/mosipuser/'
+zap_dir: '{{tools_dir}}/zap/'
+testrig_dir: '{{tools_dir}}/testrig'
+report_dir: '/home/mosipuser/reports'
+target_name: 'Mosip'
+target_uri: 'https://qa.mosip.net/'
+context: 'qa.mosip.net'
+author: 'Mandeep Dhiman'
+scan_policy: 'Default Policy'
+module: 'prereg'
+envuser: 'qa'
+testlevel: 'smoke'
+host: '127.0.0.1'
+port: '8090'

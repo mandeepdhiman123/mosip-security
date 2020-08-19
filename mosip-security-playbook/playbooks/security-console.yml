@@ -13,10 +13,10 @@
 - hosts: security-console
   gather_facts: true
   roles:
-    - {role: packages/python, tags: [python]} # Needed for letsencrypt and test scripts
+    - {role: packages/python, tags: [python]}
     - {role: packages/pip, tags: [pip]}
     - {role: packages/pip-packages, tags: [pip-packages]}
     - {role: packages/copy-python-libs, tags: [copy-python-libs]}
     - {role: packages/zap-download, tags: [zap-download]}
-    - {role: packages/maven, tags: [maven]}
     - {role: packages/functional-test, tags: [functional-test]}
+    - {role: packages/maven, tags: [maven]}

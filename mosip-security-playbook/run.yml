@@ -1,6 +1,7 @@
 # Master playbook
 #
-- import_playbook: playbooks/security-console.yml
+#- import_playbook: playbooks/security-console.yml
+- import_playbook: playbooks/api-scanning.yml
 #- {import_playbook: playbooks/os-hardening-cluster.yml, vars: {cluster1: scancluster}}
 #- {import_playbook: playbooks/os-hardening-report.yml, vars: {console1: console1, cluster1: scancluster}}
 #- {import_playbook: playbooks/uninstall-scap.yml, vars: {cluster1: scancluster}}
