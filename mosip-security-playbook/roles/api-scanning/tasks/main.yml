@@ -40,11 +40,11 @@
     regexp: "(<scan_policy>)"
     replace: "{{scan_policy}}"
 
-- name: Replace tools directory
+- name: Replace testrig directory
   replace:
     path: "{{ roles_dir }}/api-scanning/robot-file/playbook.robot"
-    regexp: "(<tools_dir>)"
-    replace: "{{tools_dir}}"
+    regexp: "(<testrig_dir>)"
+    replace: "{{testrig_dir}}"
 
 - name: Replace modules
   replace:
@@ -77,4 +77,4 @@
     replace: "{{port}}"
 
 - name: Run Api Scanning using Zap
-  cmd: "robot {{ roles_dir }}/api-scanning/robot-file/playbook.robot"
+  command: "robot {{ roles_dir }}/api-scanning/robot-file/playbook.robot"

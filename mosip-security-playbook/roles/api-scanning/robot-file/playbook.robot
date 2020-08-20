@@ -20,7 +20,7 @@ ${REPORT_AUTHOR}  <author>
 ${SCANPOLICY}  <scan_policy>
 
 #TEST-RIG
-${PATH}  <tools_dir>
+${PATH}  <testrig_dir>
 ${MODULE}  <module>
 ${ENVUSER}  <envuser>
 ${TESTLEVEL}  <testlevel>
