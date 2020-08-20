@@ -15,7 +15,7 @@
     - "{{ utils_dir }}/settings.xml"
 
 - name: Bulding test-rig
-  command: "cd {{ tools_dir }}testrig/automationtests && mvn clean install"
+  shell: "cd {{ tools_dir }}testrig/automationtests && mvn clean install"
 
 - name: Copy jar file to test testrig directory
   command: "mv {{ tools_dir }}/testrig/automationtests/tartget/*SNAPSHOT.jar {{ tools_dir }}/testrig/automationtests.jar"
