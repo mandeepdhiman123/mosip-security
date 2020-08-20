@@ -1,10 +1,10 @@
 - name: Install apt packages
-  apt: name="{{ item }}" state: present
+  apt: name={{ item }} state: present
   with_items:
-   - python
-   - python-pip
-   - libssl-dev
-   - libcurl4-openssl-dev
-   - python-dev
-   - maven
+    - python
+    - python-pip
+    - libssl-dev
+    - libcurl4-openssl-dev
+    - python-dev
+    - maven
   become: yes
