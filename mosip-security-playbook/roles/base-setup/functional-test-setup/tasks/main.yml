@@ -15,8 +15,8 @@
     state: absent
   when: testrig_folder.stat.exists == true
 
-- name: Move version to generic dir
-  command: "mv {{ tools_dir }}/mosip-functional-tests-{{ testrig_version }} {{ tools_dir }}/testrig"
+- name: Move versioned testrig to generic dir
+  command: "mv {{ tools_dir }}/mosip-functional-tests-{{ testrig_version }} {{ testrig_dir }}"
 
 - name: Update maven repository with settings file
   copy:
@@ -29,7 +29,7 @@
   shell: "cd {{ tools_dir }}testrig/authentication-partnerdemo-service/ && mvn clean install"
 
 - name: Bulding test-rig
-  shell: "cd {{ tools_dir }}testrig/automationtests && mvn clean install"
+  shell: "cd {{ testrig_dir }}/automationtests && mvn clean install"
 
 - name: Copy jar file to test testrig directory
-  command: "mv {{ tools_dir }}/testrig/automationtests/tartget/*SNAPSHOT.jar {{ tools_dir }}/automationtests.jar"
+  command: "mv {{ testrig_dir }}/automationtests/tartget/*SNAPSHOT.jar {{ testrig_dir }}/automationtests.jar"

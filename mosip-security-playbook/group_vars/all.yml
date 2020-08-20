@@ -20,7 +20,7 @@ tools_dir: '/home/mosipuser/securitytools/'
 #Robo framework variables
 root_dir: '/home/mosipuser/'
 zap_dir: '{{tools_dir}}/zap/'
-testrig_dir: '{{tools_dir}}/'
+testrig_dir: '{{tools_dir}}/testrig'
 report_dir: '/home/mosipuser/reports/'
 target_name: 'Mosip'
 target_uri: 'https://qa.mosip.net/'
