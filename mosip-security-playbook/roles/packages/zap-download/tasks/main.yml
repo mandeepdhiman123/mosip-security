@@ -15,4 +15,3 @@
 
 - name: Move Zap to zap folder
   command: "mv {{ tools_dir }}/ZAP_2.9.0 {{ tools_dir }}/zap"
-

@@ -77,4 +77,4 @@
     replace: "{{port}}"
 
 - name: Run Api Scanning using Zap
-  shell: "robot {{ roles_dir }}/api-scanning/robot-file/playbook.robot"
+  cmd: "robot {{ roles_dir }}/api-scanning/robot-file/playbook.robot"

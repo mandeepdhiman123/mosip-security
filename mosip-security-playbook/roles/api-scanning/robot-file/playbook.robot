@@ -29,8 +29,8 @@ ${PORT}  <port>
 
 
 *** Test Cases ***
-#Create Targets
-#    find or create target  ${TARGET_NAME}  ${TARGET_URI}
+Create Targets
+    find or create target  ${TARGET_NAME}  ${TARGET_URI}
 
 Initialize ZAP
     [Tags]  zap_init
@@ -38,15 +38,15 @@ Initialize ZAP
     sleep  20
     zap open url  ${TARGET_URI}
 
-#ZAP Contextualize
-#    [Tags]  zap_context
-#    ${contextid}=  zap define context  ${CONTEXT}  ${TARGET_URI}
-#    set suite variable  ${CONTEXT_ID}  ${contextid}
-#    sleep  10
+ZAP Contextualize
+    [Tags]  zap_context
+    ${contextid}=  zap define context  ${CONTEXT}  ${TARGET_URI}
+    set suite variable  ${CONTEXT_ID}  ${contextid}
+    sleep  10
 
-#Functional Test Start
-#    [Tags]  start_functional_test
-#    start functional test  ${PATH}  ${MODULE}  ${ENVUSER}  ${TARGET_URI}  ${TESTLEVEL}  ${HOST}  ${PORT}
+Functional Test Start
+    [Tags]  start_functional_test
+    start functional test  ${PATH}  ${MODULE}  ${ENVUSER}  ${TARGET_URI}  ${TESTLEVEL}  ${HOST}  ${PORT}
 
 #ZAP Active Scan
 #    [Tags]  zap_start_ascan
