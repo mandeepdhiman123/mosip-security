@@ -4,6 +4,17 @@
     dest: "{{ tools_dir }}"
     remote_src: yes
 
+- name: Check testrig directory.
+  stat:
+    path: "{{ tools_dir }}/testrig"
+  register: testrig_folder
+
+- name: "Delete directory if already exists"
+  file:
+    path: "{{ tools_dir }}/testrig"
+    state: absent
+  when: testrig_folder.stat.exists == true
+
 - name: Move version to generic dir
   command: "mv {{ tools_dir }}/mosip-functional-tests-{{ testrig_version }} {{ tools_dir }}/testrig"
 
