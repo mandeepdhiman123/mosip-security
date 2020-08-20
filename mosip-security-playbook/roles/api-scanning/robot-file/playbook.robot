@@ -13,7 +13,7 @@ ${RESULTS_PATH}  <report_dir>
 #ZAP
 ${ZAP_PATH}  <zap_dir>
 ${CONTEXT}  <context>
-${REPORT_TITLE}  MOSIP Test Report - ZAP
+${REPORT_TITLE}  Mosip-Test-Report-ZAP
 ${REPORT_FORMAT}  json
 ${ZAP_REPORT_FILE}  MOSIP.json
 ${REPORT_AUTHOR}  <author>
@@ -55,12 +55,7 @@ ZAP Active Scan
 
 ZAP Json Report
     [Tags]  zap_write_to_json_file
-    zap write to json file  ${CONTEXT}
-
-#ZAP Generate Report
-#    [Tags]  zap_generate_report
-#    zap export report  ${RESULTS_PATH}/${ZAP_REPORT_FILE}  ${REPORT_FORMAT}  ${REPORT_TITLE}  ${REPORT_AUTHOR}
-#    sleep  30
+    zap write to json file  ${TARGET_URI}  ${RESULTS_PATH}  ${REPORT_TITLE}
 
 #ZAP Die
 #    [Tags]  zap_kill

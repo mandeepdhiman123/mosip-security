@@ -164,14 +164,14 @@ class RoboZap(object):
             )
             time.sleep(10)
 
-    def zap_write_to_json_file(self, base_url):
+    def zap_write_to_json_file(self, base_url, path, filename):
         """
 
         Fetches all the results from zap.core.alerts() and writes to json file.
 
         Examples:
 
-        | zap write to json  | scan_id |
+        | zap write to json  | base_url | path | filename
 
         """
         core = self.zap.core
@@ -208,7 +208,7 @@ class RoboZap(object):
                 vul["rtt"] = int(message["rtt"])
             all_vuls.append(vul)
 
-        filename = "{0}.json".format(str(uuid.uuid4()))
+        filename = os.path.join(path, filename+".json".format(str(uuid.uuid4())))
         with open(filename, "wb") as json_file:
             json_file.write(json.dumps(all_vuls))
 
