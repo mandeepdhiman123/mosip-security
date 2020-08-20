@@ -1,9 +1,0 @@
-- name: Update maven repository with settings file
-  copy:
-    src: "{{ item }}"
-    dest: "{{ maven_dir }}"
-  with_fileglob:
-    - "{{ utils_dir }}/settings.xml"
-
-- name: Bulding test-rig
-  shell: "cd {{ tools_dir }}testrig/automationtests && mvn clean install"
