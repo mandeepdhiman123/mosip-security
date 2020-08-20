@@ -53,6 +53,10 @@ ZAP Active Scan
     zap scan status  ${scanid}
     sleep 100
 
+ZAP Json Report
+    [Tags]  zap_write_to_json_file
+    zap write to json file  ${CONTEXT}
+
 #ZAP Generate Report
 #    [Tags]  zap_generate_report
 #    zap export report  ${RESULTS_PATH}/${ZAP_REPORT_FILE}  ${REPORT_FORMAT}  ${REPORT_TITLE}  ${REPORT_AUTHOR}

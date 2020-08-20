@@ -25,6 +25,9 @@
   with_fileglob:
     - "{{ utils_dir }}/settings.xml"
 
+- name: Bulding partner demo service for dependency
+  shell: "cd {{ tools_dir }}testrig/authentication-partnerdemo-service/ && mvn clean install"
+
 - name: Bulding test-rig
   shell: "cd {{ tools_dir }}testrig/automationtests && mvn clean install"
 
