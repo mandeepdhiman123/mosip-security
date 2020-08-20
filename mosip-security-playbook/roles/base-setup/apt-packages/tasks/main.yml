@@ -1,5 +1,5 @@
 - name: Install apt packages
-  apt: name={{ item }} state: present
+  apt: name={{ item }} state=present
   with_items:
     - python
     - python-pip
