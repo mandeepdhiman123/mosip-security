@@ -6,6 +6,7 @@ tmp_dir: '/tmp/'
 logs_dir: '/tmp/'
 reporting_user: 'mosipdocs@gmail.com'
 reporting_user_secret: ''
+testrig_version: 1.1
 
 install_dir: '/home/mosipuser/mosip-security/mosip-security-playbook/'
 roles_dir: '{{install_dir}}/roles'
