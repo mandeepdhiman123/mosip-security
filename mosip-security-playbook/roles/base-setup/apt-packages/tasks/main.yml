@@ -3,6 +3,11 @@
     name: "{{ item }}"
     update_cache: true
     state: present
-    with_file:
-      - "{{utils_dir}}/apt-packages.txt"
+    with_items:
+      - python
+      - python-pip
+      - libssl-dev
+      - libcurl4-openssl-dev
+      - python-dev
+      - maven
   become: yes
