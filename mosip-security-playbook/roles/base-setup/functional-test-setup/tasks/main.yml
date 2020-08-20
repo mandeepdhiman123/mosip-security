@@ -29,4 +29,4 @@
   shell: "cd {{ tools_dir }}testrig/automationtests && mvn clean install"
 
 - name: Copy jar file to test testrig directory
-  command: "mv {{ tools_dir }}/testrig/automationtests/tartget/*SNAPSHOT.jar {{ tools_dir }}/testrig/automationtests.jar"
+  command: "mv {{ tools_dir }}/testrig/automationtests/tartget/*SNAPSHOT.jar {{ tools_dir }}/automationtests.jar"
