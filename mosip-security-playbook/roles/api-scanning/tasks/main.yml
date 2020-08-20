@@ -78,3 +78,8 @@
 
 - name: Run Api Scanning using Zap
   command: "robot {{ roles_dir }}/api-scanning/robot-file/playbook.robot"
+  register: robo
+
+- debug:
+    var: robo
+    verbosity: 4

@@ -1,0 +1,21 @@
+- name: Download and Unarchive Functional Test
+  unarchive:
+    src: "https://github.com/mosip/mosip-functional-tests/archive/{{ testrig_version }}.zip"
+    dest: "{{ tools_dir }}"
+    remote_src: yes
+
+- name: Move version to generic dir
+  command: "mv {{ tools_dir }}/mosip-functional-tests-{{ testrig_version }} {{ tools_dir }}/testrig"
+
+- name: Update maven repository with settings file
+  copy:
+    src: "{{ item }}"
+    dest: "{{ maven_dir }}"
+  with_fileglob:
+    - "{{ utils_dir }}/settings.xml"
+
+- name: Bulding test-rig
+  command: "cd {{ tools_dir }}testrig/automationtests && mvn clean install"
+
+- name: Copy jar file to test testrig directory
+  command: "mv {{ tools_dir }}/testrig/automationtests/tartget/*SNAPSHOT.jar {{ tools_dir }}/testrig/automationtests.jar"

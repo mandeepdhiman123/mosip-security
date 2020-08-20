@@ -29,9 +29,6 @@ ${PORT}  <port>
 
 
 *** Test Cases ***
-Create Targets
-    find or create target  ${TARGET_NAME}  ${TARGET_URI}
-
 Initialize ZAP
     [Tags]  zap_init
     start gui zap  ${ZAP_PATH}
@@ -47,17 +44,14 @@ ZAP Contextualize
 Functional Test Start
     [Tags]  start_functional_test
     start functional test  ${PATH}  ${MODULE}  ${ENVUSER}  ${TARGET_URI}  ${TESTLEVEL}  ${HOST}  ${PORT}
+    sleep 10
 
-#ZAP Active Scan
-#    [Tags]  zap_start_ascan
-#    ${scanid}=  zap start ascan  ${CONTEXT_ID}  ${TARGET_URI}  ${SCANPOLICY}
-#    set suite variable  ${SCAN_ID}  ${scanid}
-#    zap scan status  ${scanid}
-#    Wait Until Keyword Succeeds   30 minute  1 minute   Check status
-
-#Check status
-#    ${status}=  zap scan status  ${SCAN_ID}
-#    Should Be Equal As Strings   ${status}  "100"
+ZAP Active Scan
+    [Tags]  zap_start_ascan
+    ${scanid}=  zap start ascan  ${CONTEXT_ID}  ${TARGET_URI}  ${SCANPOLICY}
+    set suite variable  ${SCAN_ID}  ${scanid}
+    zap scan status  ${scanid}
+    sleep 100
 
 #ZAP Generate Report
 #    [Tags]  zap_generate_report
@@ -71,9 +65,3 @@ Functional Test Start
 
 #Write ZAP Results to DB
 #    parse zap json  ${RESULTS_PATH}/${ZAP_REPORT_FILE}  ${TARGET_NAME}
-
-#Generate Threat Maps
-#    generate threat maps
-
-#Write Final Report
-#    write markdown report
