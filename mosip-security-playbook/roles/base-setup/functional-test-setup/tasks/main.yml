@@ -1,22 +1,13 @@
-- name: Download and Unarchive Functional Test
-  unarchive:
-    src: "https://github.com/mosip/mosip-functional-tests/archive/{{ testrig_version }}.zip"
-    dest: "{{ tools_dir }}"
-    remote_src: yes
-
 - name: Check testrig directory.
   stat:
-    path: "{{ tools_dir }}/testrig"
+    path: "{{ testrig_dir }}"
   register: testrig_folder
 
 - name: "Delete directory if already exists"
   file:
-    path: "{{ tools_dir }}/testrig"
+    path: "{{ testrig_dir }}"
     state: absent
   when: testrig_folder.stat.exists == true
-
-- name: Move versioned testrig to generic dir
-  command: "mv {{ tools_dir }}/mosip-functional-tests-{{ testrig_version }} {{ testrig_dir }}"
 
 - name: Update maven repository with settings file
   copy:
@@ -25,8 +16,17 @@
   with_fileglob:
     - "{{ utils_dir }}/settings.xml"
 
+- name: Download and Unarchive Functional Test
+  unarchive:
+    src: "https://github.com/mosip/mosip-functional-tests/archive/{{ testrig_version }}.zip"
+    dest: "{{ tools_dir }}"
+    remote_src: yes
+
+#- name: Move versioned testrig to generic dir
+#  command: "mv {{ tools_dir }}/mosip-functional-tests-{{ testrig_version }} {{ testrig_dir }}"
+
 - name: Bulding partner demo service for dependency
-  shell: "cd {{ tools_dir }}testrig/authentication-partnerdemo-service/ && mvn clean install"
+  shell: "cd {{ testrig_dir }}/authentication-partnerdemo-service/ && mvn clean install"
 
 - name: Bulding test-rig
   shell: "cd {{ testrig_dir }}/automationtests && mvn clean install"
