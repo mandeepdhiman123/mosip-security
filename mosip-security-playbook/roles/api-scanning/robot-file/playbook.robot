@@ -44,14 +44,14 @@ ZAP Contextualize
 Functional Test Start
     [Tags]  start_functional_test
     start functional test  ${PATH}  ${MODULE}  ${ENVUSER}  ${TARGET_URI}  ${TESTLEVEL}  ${HOST}  ${PORT}
-    sleep 10
+    sleep  10
 
 ZAP Active Scan
     [Tags]  zap_start_ascan
     ${scanid}=  zap start ascan  ${CONTEXT_ID}  ${TARGET_URI}  ${SCANPOLICY}
     set suite variable  ${SCAN_ID}  ${scanid}
     zap scan status  ${scanid}
-    sleep 100
+    sleep  100
 
 ZAP Json Report
     [Tags]  zap_write_to_json_file
