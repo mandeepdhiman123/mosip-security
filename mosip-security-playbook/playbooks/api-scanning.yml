@@ -5,7 +5,7 @@
 - hosts: security-console
   gather_facts: true
   tasks:
-    - {name: 'Create report folder', file: {name: "{{ report_dir }}", state: directory}}
+    - {name: 'Create zap report folder', file: {name: "{{ zap_report_dir }}", state: directory}}
 
 - hosts: security-console
   gather_facts: true

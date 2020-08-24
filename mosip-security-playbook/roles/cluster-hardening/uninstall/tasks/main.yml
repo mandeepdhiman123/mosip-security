@@ -1,0 +1,7 @@
+- name: un-install openscap scanner on cluster machines
+  package:
+    name: "{{ item }}"
+    state: absent
+  with_items:
+    - openscap-scanner
+    - scap-security-guide

@@ -1,0 +1,7 @@
+- name: install openscap scanner on cluster machines
+  package:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - openscap-scanner
+    - scap-security-guide

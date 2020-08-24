@@ -1,0 +1,17 @@
+- name: copy report before remediation
+  fetch:
+    src: /tmp/oscap-report-before.html
+    dest: "{{oscap_report_dir}}/{{ inventory_hostname }}-before.html"
+    flat: yes
+
+- name: copy report after remediation
+  fetch:
+    src: /tmp/oscap-report-after.html
+    dest: "{{oscap_report_dir}}/{{ inventory_hostname }}-after.html"
+    flat: yes
+
+- name: copy remediation script
+  fetch:
+    src: /tmp/remediation-script.sh
+    dest: "{{oscap_report_dir}}/{{ inventory_hostname }}-remediation-script.sh"
+    flat: yes

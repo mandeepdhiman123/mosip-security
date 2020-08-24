@@ -1,0 +1,41 @@
+- name: scan report before remediation
+  command: "oscap xccdf eval \
+    --profile {{ oscap_profile }} \
+    --results /tmp/oscap.xml \
+    --report /tmp/oscap-report-before.html \
+    --fetch-remote-resources \
+    /usr/share/xml/scap/ssg/content/{{ oscap_policy }}.xml"
+  ignore_errors: yes
+
+- name: generate remediation script
+  command: "oscap xccdf generate fix \
+    --fix-type bash \
+    --profile {{ oscap_profile }} \
+    --output /tmp/remediation-script.sh \
+    /usr/share/xml/scap/ssg/content/{{ oscap_policy }}.xml"
+  ignore_errors: yes
+
+- name: Change file ownership, group and permissions
+  file:
+    path: /tmp/remediation-script.sh
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: online remediation using openscap
+  command: "oscap xccdf eval \
+    --remediate \
+    --profile {{ oscap_profile }} \
+    --results /tmp/oscap-remediate.xml \
+    --fetch-remote-resources \
+    /usr/share/xml/scap/ssg/content/{{ oscap_policy }}.xml"
+  ignore_errors: yes
+
+- name: reprt after remediation
+  command: "oscap xccdf eval \
+    --profile {{ oscap_profile }} \
+    --results /tmp/oscap.xml \
+    --report /tmp/oscap-report-after.html \
+    --fetch-remote-resources \
+    /usr/share/xml/scap/ssg/content/{{ oscap_policy }}.xml"
+  ignore_errors: yes

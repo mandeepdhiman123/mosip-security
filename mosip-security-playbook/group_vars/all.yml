@@ -15,13 +15,13 @@ lib_dir: '{{utils_dir}}/python-lib/'
 python_lib_dir: '/usr/local/lib/python2.7/dist-packages/'
 maven_dir: '~/.m2/'
 tools_dir: '/home/mosipuser/securitytools/'
-
+report_dir: '/home/mosipuser/reports/'
 
 #Robo framework variables
 root_dir: '/home/mosipuser/'
 zap_dir: '{{tools_dir}}/zap/'
 testrig_dir: '{{tools_dir}}/mosip-functional-tests-{{ testrig_version }}'
-report_dir: '/home/mosipuser/reports/'
+zap_report_dir: '{{report_dir}}/zap'
 target_name: 'Mosip'
 target_uri: 'https://qa.mosip.net/'
 context: 'qa.mosip.net'
@@ -32,3 +32,9 @@ envuser: 'qa'
 testlevel: 'smoke'
 host: '127.0.0.1'
 port: '8090'
+
+
+#OpenScap Variables
+oscap_report_dir: '{{report_dir}}/oscap'
+oscap_profile: 'xccdf_org.ssgproject.content_profile_pci-dss'
+oscap_policy: 'ssg-centos7-ds'
