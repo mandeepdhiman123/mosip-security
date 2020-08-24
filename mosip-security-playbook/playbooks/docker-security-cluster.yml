@@ -12,4 +12,3 @@
         -v /tmp:/tmp \
         mandeepdhiman90/docker-bench-security:latest
       ignore_errors: yes
-
