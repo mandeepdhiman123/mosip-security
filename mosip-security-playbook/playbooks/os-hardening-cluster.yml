@@ -13,7 +13,7 @@
   become_user: root
   become: yes
   roles:
-    - {role: cluster-hardening/setup, tags: [setup]}
-    - {role: cluster-hardening/scanning, tags: [scanning]}
-    - {role: cluster-hardening/reporting, tags: [reporting]}
-    - {role: cluster-hardening/uninstall, tags: [uninstall]}
+    - {role: os-hardening/setup, tags: [setup]}
+    - {role: os-hardening/scanning, tags: [scanning]}
+    - {role: os-hardening/reporting, tags: [reporting]}
+    - {role: os-hardening/uninstall, tags: [uninstall]}
