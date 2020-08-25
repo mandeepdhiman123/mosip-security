@@ -1,8 +1,6 @@
 # Master playbook
 #
 
-#- import_playbook: playbooks/base-setup.yml
+- import_playbook: playbooks/base-setup.yml
 - import_playbook: playbooks/os-hardening-cluster.yml
-#- {import_playbook: playbooks/docker-security-cluster.yml, vars: {cluster1: scancluster}}
-#- {import_playbook: playbooks/docker-security-report.yml, vars: {console1: console1, cluster1: scancluster}}
-#- import_playbook: playbooks/api-scanning.yml
+- import_playbook: playbooks/api-scanning.yml
