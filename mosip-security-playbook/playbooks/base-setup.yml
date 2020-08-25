@@ -10,7 +10,6 @@
     - {name: 'Create logs folder', file: {name: "{{logs_dir}}", state: directory}}
     - {name: 'Create tools folder', file: {name: "{{tools_dir}}", state: directory}}
     - {name: 'Create reporting folder', file: {name: "{{report_dir}}", state: directory}}
-    - {name: 'Create oscap report folder', file: {name: "{{ oscap_report_dir}}", state: directory}}
 
 - hosts: security-console
   gather_facts: true
