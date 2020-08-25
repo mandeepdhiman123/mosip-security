@@ -22,9 +22,6 @@
     dest: "{{ tools_dir }}"
     remote_src: yes
 
-#- name: Move versioned testrig to generic dir
-#  command: "mv {{ tools_dir }}/mosip-functional-tests-{{ testrig_version }} {{ testrig_dir }}"
-
 - name: Bulding partner demo service for dependency
   shell: "cd {{ testrig_dir }}/authentication-partnerdemo-service/ && mvn clean install"
 
