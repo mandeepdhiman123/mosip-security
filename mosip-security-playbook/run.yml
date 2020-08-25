@@ -2,4 +2,5 @@
 #
 - import_playbook: playbooks/base-setup.yml
 - import_playbook: playbooks/os-hardening-cluster.yml
+- import_playbook: playbooks/docker-security-cluster.yml
 - import_playbook: playbooks/api-scanning.yml
