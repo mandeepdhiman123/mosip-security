@@ -1,0 +1,7 @@
+- name: install openscap scanner on cluster machines
+  yum:
+    name: "{{ packages }}"
+  vars:
+    packages:
+      - openscap-scanner
+      - scap-security-guide

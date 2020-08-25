@@ -1,0 +1,11 @@
+- name: copy log from remote
+  fetch:
+    src: /tmp/docker.log
+    dest: "{{ dbs_report_dir }}/{{ inventory_hostname }}-docker.log"
+    flat: yes
+
+- name: copy json log from remote
+  fetch:
+    src: /tmp/docker.log.json
+    dest: "{{ dbs_report_dir }}/{{ inventory_hostname }}-docker.log.json"
+    flat: yes

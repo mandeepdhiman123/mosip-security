@@ -1,5 +1,5 @@
 # This play install all the tools needed on the security console for
-# further execution of automation. Here we have split tasks and roles into seperate
+# execution of automation related to OS hardening. Here we have split tasks and roles into seperate
 # play as tasks only run after roles if they are in the same play (for some reason)
 # and for us sequencing is important.
 
@@ -10,6 +10,8 @@
 
 - hosts: scancluster
   gather_facts: true
+  become_user: root
+  become: yes
   roles:
     - {role: cluster-hardening/setup, tags: [setup]}
     - {role: cluster-hardening/scanning, tags: [scanning]}

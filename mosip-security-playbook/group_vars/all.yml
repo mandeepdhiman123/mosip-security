@@ -38,3 +38,7 @@ port: '8090'
 oscap_report_dir: '{{report_dir}}/oscap'
 oscap_profile: 'xccdf_org.ssgproject.content_profile_pci-dss'
 oscap_policy: 'ssg-centos7-ds'
+
+
+#docker bench security variables
+dbs_report_dir: '{{report_dir}}/dbs'
