@@ -8,20 +8,22 @@ reporting_user: 'mosipdocs@gmail.com'
 reporting_user_secret: ''
 testrig_version: 1.1
 
-install_dir: '/home/mosipuser/mosip-security/mosip-security-playbook/'
-roles_dir: '{{install_dir}}/roles'
-utils_dir: '{{install_dir}}/utils'
+playbook_dir: '/home/mosipuser/mosip-security/mosip-security-playbook/'
+roles_dir: '{{playbook_dir}}/roles'
+utils_dir: '{{playbook_dir}}/utils'
 lib_dir: '{{utils_dir}}/python-lib/'
 python_lib_dir: '/usr/local/lib/python2.7/dist-packages/'
 maven_dir: '~/.m2/'
-tools_dir: '/home/mosipuser/securitytools/'
-report_dir: '/home/mosipuser/reports/'
+
+root_dir: '/home/mosipuser/mosip/'
+tools_dir: '{{root_dir}}/securitytools/'
+report_dir: '{{root_dir}}/reports/'
 
 #Robo framework variables
-root_dir: '/home/mosipuser/'
 zap_dir: '{{tools_dir}}/zap/'
 testrig_dir: '{{tools_dir}}/mosip-functional-tests-{{ testrig_version }}'
 zap_report_dir: '{{report_dir}}/zap'
+
 target_name: 'Mosip'
 target_uri: 'https://qa.mosip.net/'
 context: 'qa.mosip.net'
@@ -32,9 +34,6 @@ envuser: 'qa'
 testlevel: 'smoke'
 host: '127.0.0.1'
 port: '8090'
-
-
-
 
 #OpenScap Variables
 oscap_report_dir: '{{report_dir}}/oscap/'
