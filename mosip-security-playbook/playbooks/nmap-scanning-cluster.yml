@@ -1,0 +1,16 @@
+# This play perform all the tasks needed for docker security scanning.
+# Here we have split tasks and roles into seperate
+# play as tasks only run after roles if they are in the same play (for some reason)
+# and for us sequencing is important.
+
+- hosts: security-console
+  gather_facts: true
+  tasks:
+    - {name: 'nmap scanning report folder', file: {name: "{{ nmap_report_dir }}", state: directory}}
+
+- hosts: scancluster
+  gather_facts: true
+  become_user: root
+  become: yes
+  roles:
+    - {role: nmap-scanning, tags: [nmap-scanning]}

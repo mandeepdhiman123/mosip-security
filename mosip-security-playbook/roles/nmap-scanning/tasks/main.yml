@@ -1,0 +1,2 @@
+- name: Run port scanning using nmap
+  command: "nmap -p- -Pn -sS -A --script banner -oX - {{ inventory_hostname }} | xsltproc -o {{nmap_report_dir}}/1.html -"
