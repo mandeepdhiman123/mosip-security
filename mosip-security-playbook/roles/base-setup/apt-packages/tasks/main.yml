@@ -7,10 +7,5 @@
     - libcurl4-openssl-dev
     - python-dev
     - maven
-    - libopenscap8
-    - ssg-base
-    - ssg-debderived
-    - ssg-debian
-    - ssg-nondebian
-    - ssg-applications
+    - nmap
   become: yes
