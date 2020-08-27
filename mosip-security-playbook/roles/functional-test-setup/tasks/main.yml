@@ -10,32 +10,36 @@
     path: "{{ testrig_dir }}"
   register: testrig_folder
 
-vars_prompt:
-  - name: "check_for_rebuild"
-    prompt: "Same version already present, Do you want to rebuild same (yes/no)?"
-when: testrig_folder.stat.exists == true
+- debug:
+    msg: "Specified version of testrig already exist"
+  when: testrig_folder.stat.exists == true
+
+- pause:
+    prompt: "Do you want to clone and build again (yes/no)?"
+  register: check_for_rebuild
+  when: testrig_folder.stat.exists == true
 
 - name: "Deleting old build"
   file:
     path: "{{ testrig_dir }}"
     state: absent
-  when: check_for_rebuild | bool
+  when: check_for_rebuild.user_input | bool
 
 - name: Download and Unarchive Functional Test
   unarchive:
     src: "https://github.com/mosip/mosip-functional-tests/archive/{{ testrig_version }}.zip"
     dest: "{{ tools_dir }}"
     remote_src: yes
-  when: testrig_folder.stat.exists == false
+  when: check_for_rebuild.user_input | bool
 
 - name: Bulding partner demo service for dependency
   shell: "cd {{ testrig_dir }}/authentication-partnerdemo-service/ && mvn clean install"
-  when: testrig_folder.stat.exists == false
+  when: check_for_rebuild.user_input | bool
 
 - name: Bulding test-rig
   shell: "cd {{ testrig_dir }}/automationtests && mvn clean install"
-  when: testrig_folder.stat.exists == false
+  when: check_for_rebuild.user_input | bool
 
 - name: Copy jar file to test testrig directory
   command: "mv {{ testrig_dir }}/automationtests/target/*dependencies.jar {{ testrig_dir }}/automationtests/automationtests.jar"
-  when: testrig_folder.stat.exists == false
+  when: check_for_rebuild.user_input | bool
