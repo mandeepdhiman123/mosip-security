@@ -5,5 +5,5 @@
 - import_playbook: playbooks/os-security.yml
 - import_playbook: playbooks/docker-security.yml
 - import_playbook: playbooks/port-security.yml
-#- import_playbook: playbooks/network-security.yml   Setup complete use via https://<Your IP>:4000/ Working on Command line
+- import_playbook: playbooks/network-security.yml   Setup complete use via https://<Your IP>:4000/ Working on Command line
 - import_playbook: playbooks/api-security.yml

@@ -1,3 +1,6 @@
+- name: Get the IP of the inventory host
+  command: "ping -c1 {{ inventory_hostname }} | sed -nE 's/^PING[^(]+\(([^)]+)\).*/\1/p'"
+  register: host_ip
 - name: Run network scanning using openvas
   shell:
   with_items: "{{ groups['scancluster'] }}"

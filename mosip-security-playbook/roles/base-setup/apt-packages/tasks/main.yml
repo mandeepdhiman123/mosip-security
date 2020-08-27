@@ -1,7 +1,6 @@
 - name: Install basic apt packages
   apt: name={{ item }} state=present
   with_items:
-    - update
     - python
     - python-pip
     - libssl-dev
