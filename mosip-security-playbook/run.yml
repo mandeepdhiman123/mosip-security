@@ -1,7 +1,9 @@
 # Master playbook
 #
 - import_playbook: playbooks/base-setup.yml
-- import_playbook: playbooks/os-hardening-cluster.yml
-- import_playbook: playbooks/docker-security-cluster.yml
-- import_playbook: playbooks/api-scanning.yml
-- import_playbook: playbooks/nmap-scanning-cluster.yml
+- import_playbook: playbooks/functional-test-setup.yml
+- import_playbook: playbooks/os-security.yml
+- import_playbook: playbooks/docker-security.yml
+- import_playbook: playbooks/port-security.yml
+#- import_playbook: playbooks/network-security.yml   Setup complete use via https://<Your IP>:4000/ Working on Command line
+- import_playbook: playbooks/api-security.yml

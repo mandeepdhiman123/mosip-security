@@ -1,0 +1,3 @@
+- name: Run port scanning using nmap
+  shell: "nmap {{ scan_type }} -oX - {{ item }} | xsltproc -o {{nmap_report_dir}}/{{ inventory_hostname }}.html -"
+  with_items: "{{ groups['scancluster'] }}"

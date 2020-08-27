@@ -13,7 +13,7 @@
   become_user: root
   become: yes
   roles:
-    - {role: os-hardening/setup, tags: [setup]}
-    - {role: os-hardening/scanning, tags: [scanning]}
-    - {role: os-hardening/reporting, tags: [reporting]}
-    - {role: os-hardening/uninstall, tags: [uninstall]}
+    - {role: os-security/setup, tags: [setup]}
+    - {role: os-security/scanning, tags: [scanning]}
+    - {role: os-security/reporting, tags: [reporting]}
+    - {role: os-security/uninstall, tags: [uninstall]}

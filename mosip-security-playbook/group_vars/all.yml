@@ -1,34 +1,34 @@
-
 ---
 # Global variables - accessed by different roles and plays
 #
 tmp_dir: '/tmp/'
 logs_dir: '/tmp/'
 reporting_user: 'mosipdocs@gmail.com'
-reporting_user_secret: ''
-testrig_version: 1.1
 
-playbook_dir: '/home/mosipuser/mosip-security/mosip-security-playbook/'
-roles_dir: '{{playbook_dir}}/roles'
-utils_dir: '{{playbook_dir}}/utils'
+play_dir: '/home/mosipuser/mosip-security/mosip-security-playbook/'
+roles_dir: '{{play_dir}}/roles'
+utils_dir: '{{play_dir}}/utils'
 lib_dir: '{{utils_dir}}/python-lib/'
 python_lib_dir: '/usr/local/lib/python2.7/dist-packages/'
 maven_dir: '~/.m2/'
-
 root_dir: '/home/mosipuser/mosip/'
 tools_dir: '{{root_dir}}/securitytools/'
 report_dir: '{{root_dir}}/reports/'
 
+
 #Robo framework variables
 zap_dir: '{{tools_dir}}/zap/'
-testrig_dir: '{{tools_dir}}/mosip-functional-tests-{{ testrig_version }}'
 zap_report_dir: '{{report_dir}}/zap'
-
 target_name: 'Mosip'
 target_uri: 'https://qa.mosip.net/'
 context: 'qa.mosip.net'
 author: 'Mandeep Dhiman'
 scan_policy: 'Default Policy'
+
+#functional testrig variables
+testrig_version: '1.1'
+testrig_dir: '{{tools_dir}}/mosip-functional-tests-{{ testrig_version }}'
+functional_test_report_dir: '{{report_dir}}/functional-test/'
 module: 'prereg'
 envuser: 'qa'
 testlevel: 'smoke'
@@ -40,9 +40,12 @@ oscap_report_dir: '{{report_dir}}/oscap/'
 oscap_profile: 'xccdf_org.ssgproject.content_profile_pci-dss'
 oscap_policy: 'ssg-centos7-ds'
 
-
 #docker bench security variables
 dbs_report_dir: '{{report_dir}}/dbs/'
 
 #nmap variables
 nmap_report_dir: '{{report_dir}}/nmap/'
+scan_type: '-p- -Pn -sS -A --script banner'
+
+#openvas variables
+openvas_report_dir: '{{report_dir}}/openvas'

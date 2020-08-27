@@ -1,0 +1,39 @@
+- name: Add apt repository
+- apt_repository:
+    repo: ppa:mrazavi/openvas
+    state: present
+
+- name: Install apt packages
+  apt: name={{ item }} state=present
+  with_items:
+    - software-properties-common
+    - openvas9
+    - sqlite3
+    - texlive-latex-extra --no-install-recommends
+    - texlive-fonts-recommended
+    - libopenvas9-dev
+
+- name: Update openvas db
+  command: greenbone-nvt-sync
+
+- name: Update openvas scap data
+  command: greenbone-scapdata-sync
+
+- name: Update openvas certificate data
+  command: greenbone-certdata-sync
+
+- name: Restart openvas service
+  command: service openvas-scanner restart
+
+- name: Restart openvas manager service
+  command: service openvas-manager restart
+
+- name: Restart openvas gsa service
+  command: service openvas-gsa restart
+
+- name: Update openvas nvt data with openvas manager
+  command: openvasmd --rebuild --progress
+
+
+
+

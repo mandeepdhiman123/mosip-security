@@ -13,9 +13,12 @@
 
 - hosts: security-console
   gather_facts: true
+  become_user: root
+  become: yes
   roles:
     - {role: base-setup/apt-packages, tags: [apt-packages]}
     - {role: base-setup/pip-packages, tags: [pip-packages]}
     - {role: base-setup/copy-python-libs, tags: [copy-python-libs]}
-    - {role: base-setup/zap-setup, tags: [zap-download]}
-    - {role: base-setup/functional-test-setup, tags: [functional-test-setup]}
+    - {role: base-setup/zap-setup, tags: [zap-setup]}
+    - {role: base-setup/nmap-setup, tags: [nmap-setup]}
+    - {role: base-setup/openvas-setup, tags: [openvas-setup]}

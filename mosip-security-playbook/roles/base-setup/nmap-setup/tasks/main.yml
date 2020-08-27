@@ -1,0 +1,5 @@
+- name: Install nmap
+  apt: name={{ item }} state=present
+  with_items:
+    - nmap
+    - xsltproc

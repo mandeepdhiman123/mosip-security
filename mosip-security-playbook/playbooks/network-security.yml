@@ -6,11 +6,11 @@
 - hosts: security-console
   gather_facts: true
   tasks:
-    - {name: 'nmap scanning report folder', file: {name: "{{ nmap_report_dir }}", state: directory}}
+    - {name: 'openvas scanning report folder', file: {name: "{{ openvas_report_dir }}", state: directory}}
 
-- hosts: scancluster
+- hosts: security-console
   gather_facts: true
   become_user: root
   become: yes
   roles:
-    - {role: nmap-scanning, tags: [nmap-scanning]}
+    - {role: network-security, tags: [network-security]}
