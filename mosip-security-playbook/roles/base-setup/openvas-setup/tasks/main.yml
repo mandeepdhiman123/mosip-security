@@ -1,17 +1,16 @@
 - name: Add apt repository
   apt_repository:
-    repo: ppa:mrazavi/openvas
-    state: present
+    repo: 'ppa:mrazavi/openvas'
 
 - name: Install apt packages
   apt: name={{ item }} state=present
   with_items:
     - software-properties-common
-    - openvas
+    - openvas9
     - sqlite3
     - texlive-latex-extra
     - texlive-fonts-recommended
-    - libopenvas8-dev
+    - libopenvas9-dev
 
 - name: Update openvas db
   command: greenbone-nvt-sync
