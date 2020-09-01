@@ -1,0 +1,18 @@
+skip_strings:
+  /:
+    - cipher
+    - cypher
+
+skip_paths:
+  - .*.pdf
+  - .*.object
+  - .*.zip
+  - .*.jpg
+  - .*.dat
+  - .*.gif
+  - .*.dll
+  - .*.pf
+  - .*.jar
+
+no_entropy: true
+no_history: true
