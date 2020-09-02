@@ -5,15 +5,15 @@ name: CI
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 
-on:
-  schedule:
-    - cron: '00 7 * * *'
-
 #on:
-#  push:
-#    branches: [ master ]
-#  pull_request:
-#    branches: [ master ]
+#  schedule:
+#    - cron: '00 7 * * *'
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -45,7 +45,7 @@ jobs:
 
       # Runs scan
       - name: Run Trufflehog3
-        run: python3 $GITHUB_WORKSPACE/git-scanner-config/repo_scanner.py $GITHUB_WORKSPACE/git-scanner-config/rules.yaml $GITHUB_WORKSPACE/git-scanner-config/batch.txt $GITHUB_WORKSPACE/git-scanner-config/config.yaml
+        run: python3 $GITHUB_WORKSPACE/git-scanner-config/repo_scanner.py $GITHUB_WORKSPACE/git-scanner-config/rules_mosip.yaml $GITHUB_WORKSPACE/git-scanner-config/batch.txt $GITHUB_WORKSPACE/git-scanner-config/config.yaml
 
       # Zip complete report directory
       - name: Zip the reports directory

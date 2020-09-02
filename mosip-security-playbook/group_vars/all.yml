@@ -35,6 +35,7 @@ testlevel: 'smoke'
 host: '127.0.0.1'
 port: '8090'
 
+
 #OpenScap Variables
 oscap_report_dir: '{{report_dir}}/oscap/'
 oscap_profile: 'xccdf_org.ssgproject.content_profile_pci-dss'
