@@ -13,6 +13,7 @@
   vars_prompt:
     - name: "testrig_version"
       prompt: "Please provide git branch name"
+      private: no
       default: "1.1"
 
   roles:
