@@ -34,13 +34,13 @@ class RoboFunctionalTest(object):
         | start functional test  | path | host | port |
         """
         try:
-            cmd = 'java -jar -Dmodules='+module+' -Denv.user='+envuser+' -Denv.endpoint='+endpoint+' -Denv.testLevel='+testlevel+' -Dhttps.proxyHost='+host+' -Dhttps.proxyPort='+port+' -Dhttp.proxyHost='+host+' -Dhttp.proxyPort='+port+' '+path+'/automationtests.jar'
+            cmd = 'cd '+ path+ ' && java -jar -Dmodules='+module+' -Denv.user='+envuser+' -Denv.endpoint='+endpoint+' -Denv.testLevel='+testlevel+' -Dhttps.proxyHost='+host+' -Dhttps.proxyPort='+port+' -Dhttp.proxyHost='+host+' -Dhttp.proxyPort='+port+' automationtests.jar'
             os.popen(cmd)
-            time.sleep(10)
-            pid = 'jcmd | grep automationtests | cut -d "%s" -f 1'
+            time.sleep(60)
+            pid = 'jcmd | grep automationtests | cut -d " " -f 1'
             status = subprocess.Popen(pid)
-            while (status != " " or status != "" or status != null):
+            while status != "" or status.isspace()==False:
                 logger.info("Test Rig is in progress")
                 time.sleep(60)
         except IOError as e:
-            print("Please check the options")
+            logger.info("Please check the options")

@@ -41,5 +41,12 @@
   when: check_for_rebuild.user_input | bool
 
 - name: Copy jar file to test testrig directory
-  command: "mv {{ testrig_dir }}/automationtests/target/*dependencies.jar {{ testrig_dir }}/automationtests/automationtests.jar"
+  shell: "mv {{ testrig_dir }}/*dependencies.jar {{ testrig_dir }}/automationtests.jar"
   when: check_for_rebuild.user_input | bool
+
+- name: Sceduling Cronjob for test-rig
+  cron:
+    name: "functional-test"
+    minute: "30"
+    hour: "15"
+    job: "cd {{ testrig_dir }} && java -jar -Dmodules=all -Denv.user=qa -Denv.endpoint=https://qa.mosip.net -Denv.testLevel=smokeAndRegression automationtests.jar"
