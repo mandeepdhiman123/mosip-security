@@ -27,7 +27,7 @@ scan_policy: 'Default Policy'
 
 #functional testrig variables
 testrig_version: '1.1'
-testrig_dir: '{{tools_dir}}/mosip-functional-tests-{{ testrig_version }}/automationtests/target/'
+testrig_dir: '{{tools_dir}}/mosip-functional-tests-{{ testrig_version }}/'
 functional_test_report_dir: '{{report_dir}}/functional-test/'
 module: 'prereg'
 envuser: 'qa'
