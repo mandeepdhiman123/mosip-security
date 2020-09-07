@@ -16,7 +16,11 @@
 
 - pause:
     prompt: "Do you want to clone and build again (yes/no)?"
-    default: no
+  register: check_for_rebuild
+  when: testrig_folder.stat.exists == true
+
+- pause:
+    prompt: "Do you want to clone and build again (yes/no)?"
   register: check_for_rebuild
   when: testrig_folder.stat.exists == true
 

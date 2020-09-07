@@ -9,5 +9,11 @@
 
 - hosts: security-console
   gather_facts: true
+
+  vars_prompt:
+    - name: "testrig_version"
+      prompt: "Please provide git branch name"
+      default: "1.1"
+
   roles:
     - {role: functional-test-setup, tags: [functional-test-setup]}
