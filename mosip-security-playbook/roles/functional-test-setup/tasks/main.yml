@@ -53,7 +53,7 @@
   loop: "{{ modules }}"
   loop_control:
     extended: yes
-  when: check_for_rebuild == 'yes
+  when: check_for_rebuild == 'yes'
 
 - name: Download new version of Functional Test
   unarchive:
