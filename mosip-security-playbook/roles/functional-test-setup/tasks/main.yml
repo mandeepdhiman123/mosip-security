@@ -46,11 +46,14 @@
 
 - name: Sceduling upgraded Cronjob for test-rig
   cron:
-    name: "functional-test"
-    minute: "00"
-    hour: "02"
-    job: "cd {{ testrig_dir }}/automationtests/target/ && java -jar -Dmodules=all -Denv.user=qa -Denv.endpoint=https://qa.mosip.net -Denv.testLevel=smokeAndRegression automationtests.jar"
-  when: check_for_rebuild == 'yes'
+    name: "{{  item  }}"
+    minute: "{{ (((30|int + ansible_loop.index|int) % 2|int) * 30|int)|int }}"
+    hour: "{{((((ansible_loop.index|int)+((ansible_loop.index|int) % 2)) / 2|int)+(schedule_time|int - 1|int))| int }}"
+    job: "cd {{ testrig_dir }}/automationtests/target/ && java -jar -Dmodules={{ item }} -Denv.user=qa -Denv.endpoint=https://qa.mosip.net -Denv.testLevel=smokeAndRegression automationtests.jar"
+  loop: "{{ modules }}"
+  loop_control:
+    extended: yes
+  when: check_for_rebuild == 'yes
 
 - name: Download new version of Functional Test
   unarchive:
@@ -71,10 +74,13 @@
   shell: "mv {{ testrig_dir }}/automationtests/target/*dependencies.jar {{ testrig_dir }}/automationtests/target/automationtests.jar"
   when: testrig_folder.stat.exists == false
 
-- name: Sceduling Cronjob for test-rig
+- name: I m new  Sceduling upgraded Cronjob for test-rig
   cron:
-    name: "functional-test"
-    minute: "00"
-    hour: "02"
-    job: "cd {{ testrig_dir }}/automationtests/target/ && java -jar -Dmodules=all -Denv.user=qa -Denv.endpoint=https://qa.mosip.net -Denv.testLevel=smokeAndRegression automationtests.jar"
+    name: "{{  item  }}"
+    minute: "{{ (((30|int + ansible_loop.index|int) % 2|int) * 30|int)|int }}"
+    hour: "{{((((ansible_loop.index|int)+((ansible_loop.index|int) % 2)) / 2|int)+(schedule_time|int - 1|int))| int }}"
+    job: "cd {{ testrig_dir }}/automationtests/target/ && java -jar -Dmodules={{ item }} -Denv.user=qa -Denv.endpoint=https://qa.mosip.net -Denv.testLevel=smokeAndRegression automationtests.jar"
+  loop: "{{ modules }}"
+  loop_control:
+    extended: yes
   when: testrig_folder.stat.exists == false
