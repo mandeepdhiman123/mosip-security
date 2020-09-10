@@ -1,79 +1,79 @@
 - name: Replace target name
   replace:
     path: "{{ roles_dir }}/api-security/robot-file/playbook.robot"
-    regexp: "(<target_name>)"
+    regexp: "(?<=\\$[{}]TARGET_NAME[{}]\\s\\s).*.[^\\s\\s#]"
     replace: "{{target_name}}"
 
 - name: Replace target uri
   replace:
     path: "{{ roles_dir }}/api-security/robot-file/playbook.robot"
-    regexp: "(<target_uri>)"
+    regexp: "(?<=\\$[{}]TARGET_URI[{}]\\s\\s).*.[^\\s\\s#]"
     replace: "{{target_uri}}"
 
 - name: Replace report directory
   replace:
     path: "{{ roles_dir }}/api-security/robot-file/playbook.robot"
-    regexp: "(<report_dir>)"
+    regexp: "(?<=\\$[{}]RESULTS_PATH[{}]\\s\\s).*.[^\\s\\s#]"
     replace: "{{report_dir}}"
 
 - name: Replace zap directory
   replace:
     path: "{{ roles_dir }}/api-security/robot-file/playbook.robot"
-    regexp: "(<zap_dir>)"
+    regexp: "(?<=\\$[{}]ZAP_PATH[{}]\\s\\s).*.[^\\s\\s#]"
     replace: "{{zap_dir}}"
 
 - name: Replace context
   replace:
     path: "{{ roles_dir }}/api-security/robot-file/playbook.robot"
-    regexp: "(<context>)"
+    regexp: "(?<=\\$[{}]CONTEXT[{}]\\s\\s).*.[^\\s\\s#]"
     replace: "{{context}}"
 
 - name: Replace author name
   replace:
     path: "{{ roles_dir }}/api-security/robot-file/playbook.robot"
-    regexp: "(<author>)"
+    regexp: "(?<=\\$[{}]REPORT_AUTHOR[{}]\\s\\s).*.[^\\s\\s#]"
     replace: "{{author}}"
 
 - name: Replace scan policy
   replace:
     path: "{{ roles_dir }}/api-security/robot-file/playbook.robot"
-    regexp: "(<scan_policy>)"
+    regexp: "(?<=\\$[{}]SCANPOLICY[{}]\\s\\s).*.[^\\s\\s#]"
     replace: "{{scan_policy}}"
 
 - name: Replace testrig directory
   replace:
     path: "{{ roles_dir }}/api-security/robot-file/playbook.robot"
-    regexp: "(<testrig_dir>)"
+    regexp: "(?<=\\$[{}]PATH[{}]\\s\\s).*.[^\\s\\s#]"
     replace: "{{testrig_dir }}"
 
 - name: Replace modules
   replace:
     path: "{{ roles_dir }}/api-security/robot-file/playbook.robot"
-    regexp: "(<module>)"
+    regexp: "(?<=\\$[{}]MODULE[{}]\\s\\s).*.[^\\s\\s#]"
     replace: "{{module}}"
 
 - name: Replace env user
   replace:
     path: "{{ roles_dir }}/api-security/robot-file/playbook.robot"
-    regexp: "(<envuser>)"
+    regexp: "(?<=\\$[{}]ENVUSER[{}]\\s\\s).*.[^\\s\\s#]"
     replace: "{{envuser}}"
 
 - name: Replace test level
   replace:
     path: "{{ roles_dir }}/api-security/robot-file/playbook.robot"
-    regexp: "(<testlevel>)"
+    regexp: "(?<=\\$[{}]TESTLEVEL[{}]\\s\\s).*.[^\\s\\s#]"
     replace: "{{testlevel}}"
 
 - name: Replace host
   replace:
     path: "{{ roles_dir }}/api-security/robot-file/playbook.robot"
-    regexp: "(<host>)"
+    regexp: "(?<=\\$[{}]HOST[{}]\\s\\s).*.[^\\s\\s#]"
     replace: "{{host}}"
 
 - name: Replace port
   replace:
     path: "{{ roles_dir }}/api-security/robot-file/playbook.robot"
-    regexp: "(<port>)"
+    regexp: "(?<=\\$[{}]PORT[{}]\\s\\s).*.[^\\s\\s#]"
     replace: "{{port}}"
 
 - name: Run Api Scanning using Zap

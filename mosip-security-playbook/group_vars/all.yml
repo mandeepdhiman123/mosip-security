@@ -3,13 +3,13 @@
 #
 tmp_dir: '/tmp/'
 logs_dir: '/tmp/'
-play_dir: '~/mosip-security/mosip-security-playbook/'
+play_dir: '/home/mosipuser/mosip-security/mosip-security-playbook/'
 roles_dir: '{{play_dir}}/roles'
 utils_dir: '{{play_dir}}/utils'
 lib_dir: '{{utils_dir}}/python-lib/'
 python_lib_dir: '/usr/local/lib/python2.7/dist-packages/'
 maven_dir: '~/.m2/'
-root_dir: '~/mosip/'
+root_dir: '/home/mosipuser/mosip/'
 tools_dir: '{{root_dir}}/securitytools/'
 report_dir: '{{root_dir}}/reports/'
 
