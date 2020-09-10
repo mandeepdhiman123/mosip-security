@@ -44,7 +44,7 @@
   replace:
     path: "{{ roles_dir }}/api-security/robot-file/playbook.robot"
     regexp: "(<testrig_dir>)"
-    replace: "{{testrig_dir}}"
+    replace: "{{testrig_dir }}"
 
 - name: Replace modules
   replace:

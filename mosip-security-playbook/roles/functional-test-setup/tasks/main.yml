@@ -74,7 +74,7 @@
   shell: "mv {{ testrig_dir }}/automationtests/target/*dependencies.jar {{ testrig_dir }}/automationtests/target/automationtests.jar"
   when: testrig_folder.stat.exists == false
 
-- name: I m new  Sceduling upgraded Cronjob for test-rig
+- name: Sceduling upgraded Cronjob for test-rig
   cron:
     name: "{{  item  }}"
     minute: "{{ (((30|int + ansible_loop.index|int) % 2|int) * 30|int)|int }}"

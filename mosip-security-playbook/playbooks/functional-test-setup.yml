@@ -15,6 +15,9 @@
       prompt: "Please provide git branch name"
       private: no
       default: "1.1"
+  tasks:
+    - set_fact:
+        testrig_version: "{{ testrig_version }}"
 
   roles:
     - {role: functional-test-setup, tags: [functional-test-setup]}

@@ -30,7 +30,6 @@ host: '127.0.0.1'
 port: '8090'
 
 #functional testrig variables
-#testrig_version: '1.1'
 testrig_dir: '{{tools_dir}}/mosip-functional-tests-{{ testrig_version }}/'
 functional_test_report_dir: '{{report_dir}}/functional-test/'
 schedule_time: '1'
